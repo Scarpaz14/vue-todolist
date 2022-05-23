@@ -9,3 +9,8 @@
     width: 1400px;
     margin: auto;
 }
+
+.container-todo ul li{
+    list-style: none;
+    padding: 10px;
+}

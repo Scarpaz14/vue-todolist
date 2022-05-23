@@ -5,8 +5,26 @@ const app = new Vue({
             {
                 text:"Fare la spesa",
                 isDone:"true"
-
+            },
+            {
+                text:"Fare da mangiare",
+                isDone:"false"
+            },
+            {
+                text:"Fare palestra",
+                isDone:"false"
             }
-        ]
+        ],
+        todoNew: "",
+    },
+
+    methods:{
+        addNewTodo(){
+            if(this.todoNew !== " "){
+                this.list.push(this.todoNew);
+                this.todoNew = '';
+            }
+        }
+
     }
 })
