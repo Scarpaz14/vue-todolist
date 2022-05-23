@@ -22,7 +22,7 @@
 
         <div class="container-todo">
             <ul>
-                <li class="todo-element" v-for="todo in list">{{todo.text}}<i class="fa-regular fa-circle-check"></i><i class="fa-regular fa-circle-xmark"></i></li>
+                <li class="todo-element" v-for="(todo, index) in list">{{todo.text}}<i class="fa-regular fa-circle-check"></i><i class="fa-regular fa-circle-xmark" @click="CancelTodo"></i></li>
             </ul>
         </div>
 

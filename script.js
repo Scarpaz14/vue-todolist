@@ -21,10 +21,15 @@ const app = new Vue({
     methods:{
         addNewTodo(){
             if(this.todoNew !== " "){
-                this.list.push(this.todoNew);
+                this.list.push({ text: this.todoNew, isDone: "false" });
                 this.todoNew = '';
             }
-        }
+        },
 
-    }
+        CancelTodo(index){
+            this.list.splice(index,1)
+        }
+    },
+    
+
 })
