@@ -4,15 +4,15 @@ const app = new Vue({
         list:[
             {
                 text:"Fare la spesa",
-                isDone:"true"
+                isDone:false
             },
             {
                 text:"Fare da mangiare",
-                isDone:"false"
+                isDone:false
             },
             {
                 text:"Fare palestra",
-                isDone:"false"
+                isDone:false
             }
         ],
         todoNew: "",
@@ -21,15 +21,22 @@ const app = new Vue({
     methods:{
         addNewTodo(){
             if(this.todoNew !== " "){
-                this.list.push({ text: this.todoNew, isDone: "false" });
+                this.list.push({ text: this.todoNew, isDone: false });
                 this.todoNew = '';
             }
         },
-
-        CancelTodo(index){
+        cancelTodo(index){
             this.list.splice(index,1)
+        },
+
+        lineThought(index){
+            if(!this.list[index].isDone){
+                this.list[index].isDone=true;
+            } else{
+                this.list[index].isDone=false
+            }
         }
+
     },
-    
 
 })

@@ -15,15 +15,16 @@
 
         <div class="form-to-do">
             <form @submit.prevent="addNewTodo()">
-                <input type="text" placeholder="Inserisci nuovo To-do" v-model="todoNew"/>
-                <button type="submit">Inserisci</button>
+                <input id="input-form" type="text" placeholder="Inserisci nuovo To-do" v-model="todoNew"/>
+                <button id="add" type="submit">Inserisci</button>
             </form>
         </div>
 
         <div class="container-todo">
-            <ul>
-                <li class="todo-element" v-for="(todo, index) in list">{{todo.text}}<i class="fa-regular fa-circle-check"></i><i class="fa-regular fa-circle-xmark" @click="CancelTodo"></i></li>
+            <ul v-if="list.length > 0">
+                <li class="todo-element" :class="{linethrought: todo.isDone}" v-for="(todo, index) in list">{{todo.text}}<i class="fa-regular fa-circle-check" @click="lineThought(index)"></i><i class="fa-regular fa-circle-xmark" @click="cancelTodo(index)"></i></li>
             </ul>
+            <h3 v-else>Aggiungi cose da fare</h3>
         </div>
 
 
